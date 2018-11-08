@@ -1,3 +1,13 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+#app:
+#    resource: '@AppBundle/Controller/'
+#    type: annotation
+    
+# config routing
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
+    prefix:   /api/doc
+    
+# my-controllers
+create-order:
+    type: rest
+    resource: AppBundle\Controller\PostNewOrderController

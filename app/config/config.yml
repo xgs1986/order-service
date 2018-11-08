@@ -30,6 +30,9 @@ framework:
     assets: ~
     php_errors:
         log: true
+    templating:
+        engines: ['twig']
+    serializer:      { enable_annotations: true }
 
 # Twig Configuration
 twig:
@@ -69,6 +72,8 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
+#jms_serializer: ~
         
 doctrine_mongodb:
     connections:
@@ -78,4 +83,38 @@ doctrine_mongodb:
     default_database: test_database
     document_managers:
         default:
-            auto_mapping: true
+            auto_mapping: true         
+            
+fos_elastica:
+    default_manager: mongodb
+    clients:
+       default: { host: 127.0.0.1, port: 9200 }
+    indexes:
+       app:
+          types:
+             order:
+                properties:
+                   total_amount: ~
+                   order_lines: ~
+                   order_shipping_address: ~
+                   order_billing_address: ~
+                persistence:
+                   driver: mongodb
+                   model: AppBundle\Document\Order
+                   provider: ~
+                   finder: ~
+                   
+nelmio_api_doc:
+    areas:
+        path_patterns: # an array of regexps
+            - ^/order   
+            
+    documentation:
+        info:
+            title: API RES Order
+            description: API RES Order
+            version: 1.0.0
+
+                
+                         
+        

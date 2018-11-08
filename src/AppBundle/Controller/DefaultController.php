@@ -23,6 +23,23 @@ class DefaultController extends Controller
         $dm->persist($product);
         $dm->flush();
         
+<<<<<<< HEAD
+        $finder = $this->container->get('fos_elastica.finder.app.order');
+        $boolQuery = new \Elastica\Query\BoolQuery();
+        
+        $fieldQuery = new \Elastica\Query\Match();
+        $fieldQuery->setFieldQuery('total_amount', 19.99);
+        $boolQuery->addShould($fieldQuery);
+        
+        
+        $data = $finder->find($boolQuery);
+        
+        var_dump($data);
+        exit;
+        
+        
+=======
+>>>>>>> branch 'master' of https://github.com/xgs1986/order-service.git
         return new Response('Created product id '.$product->getId());
     }
 }

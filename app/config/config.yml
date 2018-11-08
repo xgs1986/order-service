@@ -78,4 +78,26 @@ doctrine_mongodb:
     default_database: test_database
     document_managers:
         default:
-            auto_mapping: true
+            auto_mapping: true         
+            
+fos_elastica:
+    default_manager: mongodb
+    clients:
+       default: { host: 127.0.0.1, port: 9200 }
+    indexes:
+       app:
+          types:
+             order:
+                properties:
+                   total_amount: ~
+                   order_lines: ~
+                   order_shipping_address: ~
+                   order_billing_address: ~
+                persistence:
+                   driver: mongodb
+                   model: AppBundle\Document\Order
+                   provider: ~
+                   finder: ~
+                
+                         
+        

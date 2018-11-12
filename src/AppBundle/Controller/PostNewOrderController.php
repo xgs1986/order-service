@@ -6,6 +6,7 @@ use FOS\RestBundle\Controller\Annotations;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations\Route;
 use Nelmio\ApiDocBundle\Annotation\Operation;
+use Nelmio\ApiDocBundle\Annotation\Model;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,31 +22,40 @@ class PostNewOrderController extends FOSRestController
      * @Operation(
      *     tags={"order"},
      *     consumes={"multipart/form-data"},
-     *     summary="This endpoint makes new order",
+     *     summary="Crea una nueva compra",
      *     @SWG\Parameter(
      *         name="total_amount",
      *         in="formData",
-     *         description="Email",
+     *         description="Importe total",
      *         required=true,
      *         type="number"
      *     ),
      *     @SWG\Parameter(
-     *         name="username",
+     *          name="order_lines",
+     *          in="formData",
+     *          required=true,
+     *          type="array",
+     *          @SWG\Items(
+     *             @Model(type=AppBundle\Entity\OrderLine::class)
+     *         )
+     *     ),
+     *     @SWG\Parameter(
+     *         name="order_shipping_address",
      *         in="formData",
-     *         description="User Name",
+     *         description="Dirección de envio",
      *         required=true,
      *         type="string"
      *     ),
      *     @SWG\Parameter(
-     *         name="password",
+     *         name="order_billing_address",
      *         in="formData",
-     *         description="Password",
+     *         description="Dirección de facturación",
      *         required=true,
      *         type="string"
      *     ),
      *     @SWG\Response(
      *         response="201",
-     *         description="Returned when the register process is successful"
+     *         description="Retorna cuando se crea la orden de compra correctamente"
      *     ),
      *     @SWG\Response(
      *         response="404",

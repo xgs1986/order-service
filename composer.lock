@@ -3074,7 +3074,6 @@
                 "psr-3"
             ],
             "time": "2018-11-05T09:00:11+00:00"
-<<<<<<< HEAD
         },
         {
             "name": "nelmio/api-doc-bundle",
@@ -3158,8 +3157,6 @@
                 "rest"
             ],
             "time": "2018-08-29T23:10:36+00:00"
-=======
->>>>>>> branch 'master' of https://github.com/xgs1986/order-service.git
         },
         {
             "name": "pagerfanta/pagerfanta",

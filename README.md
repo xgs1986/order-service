@@ -4,6 +4,7 @@ https://www.roytuts.com/mongodb-php7-xampp-windows/
 composer config "platform.ext-mongo" "1.6.16" && composer require alcaeus/mongo-php-adapter
 https://symfony.com/doc/master/bundles/DoctrineMongoDBBundle/index.html v4
 - elasticsearch
+<<<<<<< HEAD
 https://www.elastic.co/guide/en/elasticsearch/reference/current/windows.html
 
 
@@ -40,3 +41,6 @@ Tests
 --------------
 Nos situamos en el directorio raíz del proyecto y ejecutamos:
 .\vendor\bin\phpunit tests\AppBundle\Controller\
+=======
+https://www.elastic.co/guide/en/elasticsearch/reference/current/windows.html
+>>>>>>> branch 'master' of https://github.com/xgs1986/order-service.git

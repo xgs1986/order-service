@@ -21,7 +21,7 @@ class PostNewOrderController extends FOSRestController
      * @Operation(
      *     tags={"order"},
      *     consumes={"multipart/form-data"},
-     *     summary="This endpoint makes the register possible",
+     *     summary="This endpoint makes new order",
      *     @SWG\Parameter(
      *         name="total_amount",
      *         in="formData",

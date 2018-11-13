@@ -31,27 +31,26 @@ class PostNewOrderController extends FOSRestController
      *         type="number"
      *     ),
      *     @SWG\Parameter(
-     *          name="order_lines",
-     *          in="formData",
-     *          required=true,
-     *          type="array",
-     *          @SWG\Items(
-     *             @Model(type=AppBundle\Entity\OrderLine::class)
-     *         )
+     *         name="order_lines[]",
+     *         in="formData",
+     *         description="Importe total",
+     *         required=true,
+     *         type="array",
+     *         @SWG\Items(ref="#/definitions/OrderLines")
      *     ),
      *     @SWG\Parameter(
      *         name="order_shipping_address",
      *         in="formData",
-     *         description="Dirección de envio",
+     *         description="Importe total",
      *         required=true,
-     *         type="string"
+     *         type="number"
      *     ),
      *     @SWG\Parameter(
      *         name="order_billing_address",
      *         in="formData",
-     *         description="Dirección de facturación",
+     *         description="Importe total",
      *         required=true,
-     *         type="string"
+     *         type="number"
      *     ),
      *     @SWG\Response(
      *         response="201",
@@ -69,35 +68,37 @@ class PostNewOrderController extends FOSRestController
     
     public function postNewOrderAction (Request $request)
     {
-        $context = $this->get('user_service');
-        $view = $context->register($request);
-        return $this->handleView($view);
+        var_dump($request);
+        exit; 
+        //$context = $this->get('user_service');
+        //$view = $context->register($request);
+        //return $this->handleView($view);
     }
 }
-    
-        
+
+
 //         $product = new Order();
 //         $product->setTotalAmount(19.99);
-        
+
 //         $dm = $this->get('doctrine_mongodb')->getManager();
 //         $dm->persist($product);
 //         $dm->flush();
-        
+
 //         $finder = $this->container->get('fos_elastica.finder.app.order');
 //         $boolQuery = new \Elastica\Query\BoolQuery();
-        
+
 //         $fieldQuery = new \Elastica\Query\Match();
 //         $fieldQuery->setFieldQuery('total_amount', 19.99);
 //         $boolQuery->addShould($fieldQuery);
-        
-        
+
+
 //         $data = $finder->find($boolQuery);
-        
+
 //         var_dump($data);
 //         exit;
-        
-        
-        
+
+
+
 //         return new Response('Created product id '.$product->getId());
-  
+
 

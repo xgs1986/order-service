@@ -114,6 +114,18 @@ nelmio_api_doc:
             title: API RES Order
             description: API RES Order
             version: 1.0.0
+        definitions:
+            OrderLines:
+                description: "Objeto que contiene especificaciones de los pedidos"
+                type: object
+                properties:
+                    sku:
+                        type: integer
+                    price:
+                        type: integer
+                    quantity:
+                        type: integer
+                        
                 
                          
         

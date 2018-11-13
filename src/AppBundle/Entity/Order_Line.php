@@ -1,7 +1,5 @@
 <?php
-
-namespace AppBundle\Document;
-
+namespace AppBundle\Entity;
 
 class Order_Line
 {

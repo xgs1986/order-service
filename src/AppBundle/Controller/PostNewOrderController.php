@@ -21,36 +21,38 @@ class PostNewOrderController extends FOSRestController
     /**
      * @Operation(
      *     tags={"order"},
-     *     consumes={"multipart/form-data"},
+     *     consumes={"application/x-www-form-urlencoded"},
      *     summary="Crea una nueva compra",
      *     @SWG\Parameter(
      *         name="total_amount",
-     *         in="formData",
+     *         in="body",
      *         description="Importe total",
      *         required=true,
-     *         type="number"
-     *     ),
-     *     @SWG\Parameter(
-     *         name="order_lines[]",
-     *         in="formData",
-     *         description="Importe total",
-     *         required=true,
-     *         type="array",
-     *         @SWG\Items(ref="#/definitions/OrderLines")
+     *         type="number",
+     *         @SWG\Schema(type="number")
      *     ),
      *     @SWG\Parameter(
      *         name="order_shipping_address",
-     *         in="formData",
+     *         in="body",
      *         description="Importe total",
      *         required=true,
-     *         type="number"
+     *         type="string",
+     *         @SWG\Schema(type="string")
      *     ),
      *     @SWG\Parameter(
      *         name="order_billing_address",
-     *         in="formData",
+     *         in="body",
      *         description="Importe total",
      *         required=true,
-     *         type="number"
+     *         type="string",
+     *         @SWG\Schema(type="string")
+     *     ),
+     *     @SWG\Parameter(
+     *         name="order_lines",
+     *         type="array",
+     *         in="body",
+     *         required=true,
+     *         @SWG\Schema(type="array", @SWG\Items(ref="#/definitions/OrderLines"))
      *     ),
      *     @SWG\Response(
      *         response="201",
@@ -66,9 +68,9 @@ class PostNewOrderController extends FOSRestController
      *
      */
     
-    public function postNewOrderAction (Request $request)
+    public function postCreateOrderAction (Request $request)
     {
-        var_dump($request);
+        var_dump("hola");
         exit; 
         //$context = $this->get('user_service');
         //$view = $context->register($request);

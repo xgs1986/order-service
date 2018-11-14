@@ -15,3 +15,7 @@ create-order:
 get-order:
     type: rest
     resource: AppBundle\Controller\GetOrderController
+    
+update-order-status:
+    type: rest
+    resource: AppBundle\Controller\UpdateOrderStatusController

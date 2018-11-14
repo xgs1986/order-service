@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Nos permite registrarnos en la base de datos
+ * Obtenemos un orden dado su id
  * @author XGS
  *
  */
@@ -39,7 +39,7 @@ class GetOrderController extends FOSRestController
      *     )
      * )
      * 
-     * @Route("/order", methods={"GET"})
+     * @Route("order", methods={"GET"})
      *
      * @param Request $request
      */

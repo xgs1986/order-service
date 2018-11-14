@@ -12,23 +12,33 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Creamos una nueva compra
+ * Nos permite registrarnos en la base de datos
  * @author XGS
  *
  */
-class PostNewOrderController extends FOSRestController
+class UpdateOrderStatusController extends FOSRestController
 {
-    /**
+      /**
      * @Operation(
      *     tags={"order"},
      *     consumes={"application/json"},
      *     produces={"application/json"},
-     *     summary="Crea una nueva compra",
+     *     summary="Actualizo el status de una orden",
      *     @SWG\Parameter(
-     *         name="order",
-     *         in="body",
+     *         name="id",
+     *         in="formData",
+     *         description="id",
      *         required=true,
-     *         @SWG\Schema(ref="#/definitions/Order")
+     *         type="string"
+     *     ),
+     *     @SWG\Parameter(
+     *         name="estado",
+     *         in="formData",
+     *         enum={"available", "discontinued"},
+     *         default="available",
+     *         description="status",
+     *         required=true,
+     *         type="string"
      *     ),
      *     @SWG\Response(
      *         response="201",
@@ -40,17 +50,14 @@ class PostNewOrderController extends FOSRestController
      *     )
      * )
      *
-     * @Route("order", methods={"POST"})
+     * @Route("order/update_status", methods={"POST"})
      *
      */
     
-    public function postNewOrderAction (Request $request)
+    public function postUpdateOrderStatusAction (Request $request)
     {
-        $params = $request->request->all();
-        
         $order = $this->get('order_service');
-
-        $view = $order->createOrder($params);
+        $view = $order->getOrderById($request->get('id'));       
         return $this->handleView($view);
     }
 }

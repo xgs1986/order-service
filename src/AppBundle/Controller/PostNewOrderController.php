@@ -51,7 +51,6 @@ class PostNewOrderController extends FOSRestController
         $order = $this->get('order_service');
 
         $view = $order->createOrder($params);
-        exit; 
         return $this->handleView($view);
     }
 }

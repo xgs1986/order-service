@@ -1,0 +1,29 @@
+<?php
+
+namespace AppBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * @MongoDB\Document
+ */
+class Order_Line
+{
+    /**
+     * @MongoDB\Id
+     */
+    protected $id;
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $item_sku;
+    /**
+     * @MongoDB\Field(type="float")
+     */
+    protected $price;
+    /**
+     * @MongoDB\Field(type="float")
+     */
+    protected $quantity;
+
+}

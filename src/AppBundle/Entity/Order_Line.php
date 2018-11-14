@@ -3,15 +3,15 @@ namespace AppBundle\Entity;
 
 class Order_Line
 {
-    private $item_sku;
+    private $sku;
     private $price;
     private $quantity;
     /**
      * @return mixed
      */
-    public function getItem_sku()
+    public function getSku()
     {
-        return $this->item_sku;
+        return $this->sku;
     }
 
     /**
@@ -33,9 +33,9 @@ class Order_Line
     /**
      * @param mixed $item_sku
      */
-    public function setItem_sku($item_sku)
+    public function setSku($sku)
     {
-        $this->item_sku = $item_sku;
+        $this->sku = $sku;
     }
 
     /**

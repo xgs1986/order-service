@@ -94,10 +94,10 @@ fos_elastica:
           types:
              order:
                 properties:
-                   total_amount: ~
-                   order_lines: ~
-                   order_shipping_address: ~
-                   order_billing_address: ~
+                   total_amount: { type: float}
+                   order_lines: { type: object, dynamic: true }
+                   order_shipping_address: { type: text}
+                   order_billing_address: { type: text}
                 persistence:
                    driver: mongodb
                    model: AppBundle\Document\Order
@@ -128,14 +128,14 @@ nelmio_api_doc:
                     order_lines:
                         type: array
                         items:
-                            $ref: "#/definitions/OrderLines"
+                            $ref: "#/definitions/Order_Line"
                             
-            OrderLines:
+            Order_Line:
                 description: "Objeto que contiene especificaciones de los pedidos"
                 type: object
                 properties:
                     sku:
-                        type: integer
+                        type: string
                     price:
                         type: integer
                     quantity:
@@ -161,9 +161,9 @@ fos_rest:
     routing_loader:
         default_format:  json
         include_format:  false
-    #exception:
-     #   enabled: true
-      #  exception_controller: 'AppBundle\Controller\ExceptionController::showErrorAction'
+    exception:
+        enabled: true
+        exception_controller: 'AppBundle\Controller\ExceptionController::showErrorAction'
                 
                          
         

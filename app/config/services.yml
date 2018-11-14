@@ -37,7 +37,7 @@ services:
     order_service:
         class:                         AppBundle\Services\OrderService
         public: true
-        arguments: ['@order_repository_service', '@response_view_service', '@logger']  
+        arguments: ['@order_repository_service', '@searcher_order_service', '@response_view_service', '@logger']  
    
     order_repository_service:
         class:                         AppBundle\Services\NosqlBundle\OrderRepositoryService

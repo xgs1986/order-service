@@ -23,16 +23,9 @@ class GetOrderController extends FOSRestController
      *     tags={"order"},
      *     summary="Obtengo el pedido por identificador",
      *     @SWG\Parameter(
-     *         name="field",
+     *         name="id",
      *         in="query",
-     *         description="id del pedido",
-     *         required=true,
-     *         type="string"
-     *     ),
-     *     @SWG\Parameter(
-     *         name="value",
-     *         in="query",
-     *         description="id del pedido",
+     *         description="valor del filtro",
      *         required=true,
      *         type="string"
      *     ),
@@ -53,20 +46,8 @@ class GetOrderController extends FOSRestController
     
     public function getOrderAction (Request $request)
     {
-       //$searcher = $this->get('searcher_order_service');
-        //$view = $searcher->searchBy($request->get('field'), $request->get('value'));
-        
-        $finder = $this->container->get('fos_elastica.finder.app.order');
-                $boolQuery = new \Elastica\Query\BoolQuery();
-        
-                $fieldQuery = new \Elastica\Query\Match();
-                $fieldQuery->setFieldQuery('id', '5bec20a43309132dcc006957');
-                $boolQuery->addShould($fieldQuery);
-        
-        
-            $data = $finder->find($boolQuery);
-            
-            var_dump($data);exit;
+        $order = $this->get('order_service');
+        $view = $order->getOrderById($request->get('id'));       
         return $this->handleView($view);
     }
 }

@@ -5,68 +5,21 @@ namespace AppBundle\Services\SearcherBundle;
 class SearcherOrderService
 {
     private $logger;
-    private $dbConnector;
+    private $index;
     
-    public function __construct($searcher, $logger)
+    public function __construct($index, $logger)
     {        
-        $this->searcher = $searcher;
+        $this->index = $index;
         $this->logger = $logger;
     }
     
-    public function searchBy($field, $value)
+    public function searchOrderById($value)
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
 
         $fieldQuery = new \Elastica\Query\Match();
-        $fieldQuery->setFieldQuery($field, $value);
+        $fieldQuery->setFieldQuery("_id", $value);
         $boolQuery->addShould($fieldQuery);
-
-        var_dump($this->searcher->find($boolQuery));
-        exit;
-        return $this->searcher->find($boolQuery);  
+        return $this->index->find($boolQuery);  
     }
 }
-//     /**
-//      * @return mixed
-//      */
-//     public function findAll()
-//     {
-//         return
-//         $this->createQueryBuilder('Order')
-//         ->sort('createdAt', 'desc')
-//         ->getQuery()
-//         ->execute();
-//     }
-    
-//     /**
-//      * @param string $field
-//      * @param string $data
-//      *
-//      * @return array|null|object
-//      */
-
-//}
-
-//         $product = new Order();
-//         $product->setTotalAmount(19.99);
-
-//         $dm = $this->get('doctrine_mongodb')->getManager();
-//         $dm->persist($product);
-//         $dm->flush();
-
-//         $finder = $this->container->get('fos_elastica.finder.app.order');
-//         $boolQuery = new \Elastica\Query\BoolQuery();
-
-//         $fieldQuery = new \Elastica\Query\Match();
-//         $fieldQuery->setFieldQuery('total_amount', 19.99);
-//         $boolQuery->addShould($fieldQuery);
-
-
-//         $data = $finder->find($boolQuery);
-
-//         var_dump($data);
-//         exit;
-
-
-
-//         return new Response('Created product id '.$product->getId());

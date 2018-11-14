@@ -25,33 +25,13 @@ class PostNewOrderController extends FOSRestController
      *     produces={"application/json"},
      *     summary="Crea una nueva compra",
      *     @SWG\Parameter(
-     *         name="total_amount",
+     *         name="order",
      *         in="body",
-     *         format="application/json",
      *         required=true,
-     *         @SWG\Schema(type="number")
+     *         @SWG\Schema(ref="#/definitions/Order")
      *     ),
-     *     @SWG\Parameter(
-     *         name="order_shipping_address",
-     *         in="body",
-     *         format="application/json",
-     *         required=true,
-     *         @SWG\Schema(type="string")
-     *     ),
-     *     @SWG\Parameter(
-     *         name="order_billing_address",
-     *         in="body",
-     *         format="application/json",
-     *         required=true,
-     *         @SWG\Schema(type="string")
-     *     ),
-     *     @SWG\Parameter(
-     *         name="order_lines",
-     *         in="body",
-     *         format="application/json",
-     *         required=true,
-     *         @SWG\Schema(type="array", @SWG\Items(ref="#/definitions/OrderLines"))
-     *     ),
+     *     
+     *     
      *     @SWG\Response(
      *         response="201",
      *         description="Retorna cuando se crea la orden de compra correctamente"

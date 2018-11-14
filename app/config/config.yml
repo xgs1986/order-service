@@ -115,6 +115,21 @@ nelmio_api_doc:
             description: API RES Order
             version: 1.0.0
         definitions:
+            Order:
+                description: "Objeto de orden"
+                type: object
+                properties:
+                    total_amount:
+                        type: integer
+                    order_shipping_address:
+                        type: string
+                    order_billing_address:
+                        type: string
+                    order_lines:
+                        type: array
+                        items:
+                            $ref: "#/definitions/OrderLines"
+                            
             OrderLines:
                 description: "Objeto que contiene especificaciones de los pedidos"
                 type: object

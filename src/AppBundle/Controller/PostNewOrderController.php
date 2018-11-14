@@ -21,36 +21,34 @@ class PostNewOrderController extends FOSRestController
     /**
      * @Operation(
      *     tags={"order"},
-     *     consumes={"application/x-www-form-urlencoded"},
+     *     consumes={"application/json"},
+     *     produces={"application/json"},
      *     summary="Crea una nueva compra",
      *     @SWG\Parameter(
      *         name="total_amount",
      *         in="body",
-     *         description="Importe total",
+     *         format="application/json",
      *         required=true,
-     *         type="number",
      *         @SWG\Schema(type="number")
      *     ),
      *     @SWG\Parameter(
      *         name="order_shipping_address",
      *         in="body",
-     *         description="Importe total",
+     *         format="application/json",
      *         required=true,
-     *         type="string",
      *         @SWG\Schema(type="string")
      *     ),
      *     @SWG\Parameter(
      *         name="order_billing_address",
      *         in="body",
-     *         description="Importe total",
+     *         format="application/json",
      *         required=true,
-     *         type="string",
      *         @SWG\Schema(type="string")
      *     ),
      *     @SWG\Parameter(
      *         name="order_lines",
-     *         type="array",
      *         in="body",
+     *         format="application/json",
      *         required=true,
      *         @SWG\Schema(type="array", @SWG\Items(ref="#/definitions/OrderLines"))
      *     ),
@@ -70,7 +68,7 @@ class PostNewOrderController extends FOSRestController
     
     public function postCreateOrderAction (Request $request)
     {
-        var_dump("hola");
+        var_dump($request->get('total_amount'));
         exit; 
         //$context = $this->get('user_service');
         //$view = $context->register($request);

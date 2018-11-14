@@ -80,7 +80,7 @@ doctrine_mongodb:
         default:
             server: "%mongodb_server%"
             options: {}
-    default_database: test_database
+    default_database: mongodb
     document_managers:
         default:
             auto_mapping: true         
@@ -161,9 +161,9 @@ fos_rest:
     routing_loader:
         default_format:  json
         include_format:  false
-    #exception:
-     #   enabled: true
-      #  exception_controller: 'AppBundle\Controller\ExceptionController::showErrorAction'
+    exception:
+        enabled: true
+        exception_controller: 'AppBundle\Controller\ExceptionController::showErrorAction'
                 
                          
         

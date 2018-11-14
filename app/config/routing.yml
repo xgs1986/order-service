@@ -11,3 +11,7 @@ NelmioApiDocBundle:
 create-order:
     type: rest
     resource: AppBundle\Controller\PostNewOrderController
+
+get-order:
+    type: rest
+    resource: AppBundle\Controller\GetOrderController

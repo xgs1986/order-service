@@ -37,9 +37,20 @@ services:
     order_service:
         class:                         AppBundle\Services\OrderService
         public: true
-        arguments: ['@logger', '@order_repository_service']  
+        arguments: ['@order_repository_service', '@response_view_service', '@logger']  
    
     order_repository_service:
         class:                         AppBundle\Services\NosqlBundle\OrderRepositoryService
         public: true
         arguments: ['@doctrine_mongodb', '@logger']  
+        
+    response_view_service:
+        class:                         AppBundle\Services\ResponseViewService
+        public: true
+        arguments: ['@logger']  
+        
+    searcher_order_service:
+        class:                         AppBundle\Services\SearcherBundle\SearcherOrderService
+        public: true
+        arguments: ['@fos_elastica.finder.app.order', '@logger']  
+           

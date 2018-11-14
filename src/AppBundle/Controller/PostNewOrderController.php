@@ -30,8 +30,6 @@ class PostNewOrderController extends FOSRestController
      *         required=true,
      *         @SWG\Schema(ref="#/definitions/Order")
      *     ),
-     *     
-     *     
      *     @SWG\Response(
      *         response="201",
      *         description="Retorna cuando se crea la orden de compra correctamente"
@@ -46,39 +44,14 @@ class PostNewOrderController extends FOSRestController
      *
      */
     
-    public function postCreateOrderAction (Request $request)
+    public function postNewOrderAction (Request $request)
     {
-        var_dump($request->get('total_amount'));
+        $params = $request->request->all();
+        
+        $order = $this->get('order_service');
+
+        $view = $order->createOrder($params);
         exit; 
-        //$context = $this->get('user_service');
-        //$view = $context->register($request);
-        //return $this->handleView($view);
+        return $this->handleView($view);
     }
 }
-
-
-//         $product = new Order();
-//         $product->setTotalAmount(19.99);
-
-//         $dm = $this->get('doctrine_mongodb')->getManager();
-//         $dm->persist($product);
-//         $dm->flush();
-
-//         $finder = $this->container->get('fos_elastica.finder.app.order');
-//         $boolQuery = new \Elastica\Query\BoolQuery();
-
-//         $fieldQuery = new \Elastica\Query\Match();
-//         $fieldQuery->setFieldQuery('total_amount', 19.99);
-//         $boolQuery->addShould($fieldQuery);
-
-
-//         $data = $finder->find($boolQuery);
-
-//         var_dump($data);
-//         exit;
-
-
-
-//         return new Response('Created product id '.$product->getId());
-
-

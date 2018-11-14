@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de3d8f0e5a53d2d24acdfff7d81d4f3c",
+    "content-hash": "b8af543c2448e9884f4cc3fb25a44229",
     "packages": [
         {
             "name": "alcaeus/mongo-php-adapter",
@@ -4664,6 +4664,129 @@
                 "framework"
             ],
             "time": "2018-11-03T10:03:29+00:00"
+        },
+        {
+            "name": "tebru/doctrine-annotation-reader",
+            "version": "v0.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tebru/doctrine-annotation-reader.git",
+                "reference": "be63358a88c4d593c58c37a43d0d8715d720f8b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tebru/doctrine-annotation-reader/zipball/be63358a88c4d593c58c37a43d0d8715d720f8b0",
+                "reference": "be63358a88c4d593c58c37a43d0d8715d720f8b0",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "^1.2",
+                "php": ">= 7.1",
+                "symfony/cache": "^3.3|^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tebru\\AnnotationReader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Brunette",
+                    "email": "n@tebru.net"
+                }
+            ],
+            "description": "Provides a cleaner API for reading Doctrine annotations",
+            "time": "2018-07-15T16:54:12+00:00"
+        },
+        {
+            "name": "tebru/gson-php",
+            "version": "v0.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tebru/gson-php.git",
+                "reference": "f93618f7d3a1782de06a8d668084bb042c04554f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tebru/gson-php/zipball/f93618f7d3a1782de06a8d668084bb042c04554f",
+                "reference": "f93618f7d3a1782de06a8d668084bb042c04554f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 7.1",
+                "phpdocumentor/reflection-docblock": "^3.2.3|^4.0.1",
+                "symfony/cache": "^3.3|^4.0",
+                "tebru/doctrine-annotation-reader": "^0.3.0",
+                "tebru/php-type": "^0.1.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tebru\\Gson\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Brunette",
+                    "email": "n@tebru.net"
+                }
+            ],
+            "description": "Gson for PHP: Convert PHP objects to and from json",
+            "time": "2018-09-15T19:19:26+00:00"
+        },
+        {
+            "name": "tebru/php-type",
+            "version": "v0.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tebru/php-type.git",
+                "reference": "0d7121812da1f56ac27ceb1828677d5244fcc792"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tebru/php-type/zipball/0d7121812da1f56ac27ceb1828677d5244fcc792",
+                "reference": "0d7121812da1f56ac27ceb1828677d5244fcc792",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tebru\\PhpType\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Brunette",
+                    "email": "n@tebru.net"
+                }
+            ],
+            "description": "A type wrapper for PHP that support generic syntax",
+            "time": "2018-07-15T16:49:18+00:00"
         },
         {
             "name": "twig/twig",

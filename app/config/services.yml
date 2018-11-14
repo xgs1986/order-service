@@ -33,3 +33,13 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    
+    order_service:
+        class:                         AppBundle\Services\OrderService
+        public: true
+        arguments: ['@logger', '@order_repository_service']  
+   
+    order_repository_service:
+        class:                         AppBundle\Services\NosqlBundle\OrderRepositoryService
+        public: true
+        arguments: ['@doctrine_mongodb', '@logger']  

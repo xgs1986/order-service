@@ -53,10 +53,7 @@ class GetOrderController extends FOSRestController
     
     public function getOrderAction (Request $request)
     {
-       //$searcher = $this->get('searcher_order_service');
-        //$view = $searcher->searchBy($request->get('field'), $request->get('value'));
-        
-        $finder = $this->container->get('fos_elastica.finder.app.order');
+       $finder = $this->container->get('fos_elastica.finder.app.order');
                 $boolQuery = new \Elastica\Query\BoolQuery();
         
                 $fieldQuery = new \Elastica\Query\Match();

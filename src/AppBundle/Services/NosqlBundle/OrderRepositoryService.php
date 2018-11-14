@@ -5,8 +5,7 @@ namespace AppBundle\Services\NosqlBundle;
 use AppBundle\Document\Order;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use AppBundle\Utils\ApiException;
-use Doctrine\ODM\MongoDB\DocumentRepository;
-use AppBundle\Entity\Order_Line;
+
 
 class OrderRepositoryService
 {
@@ -29,13 +28,7 @@ class OrderRepositoryService
             $order->setOrderShippingAddress($params['order_shipping_address']);
             
             $order->setOrderLines($params['order_lines']);
-//             foreach($params['order_lines'] as $newProduct) {
-//                 $orderLine = new Order_Line();
-//                 $orderLine->setSku($newProduct['sku']);
-//                 $orderLine->setPrice($newProduct['price']);
-//                 $orderLine->setQuantity($newProduct['quantity']);
-//                 //$order->addOrderLine($orderLine);
-//             }
+
             
             $dm = $this->dbConnector->getManager();
             $dm->persist($order);

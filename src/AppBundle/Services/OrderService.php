@@ -8,17 +8,15 @@ class OrderService
     private $orderRepository;
     private $orderStatusRepository;
     private $orderSearcher;
-    private $orderStatusSearcher;
     private $responseView;
     
     const DEFAULT_STATUS = "Pending Confirmation";
     
-    public function __construct($orderRepository, $orderStatusRepository, $orderSearcher, $orderStatusSearcher, $responseView, $logger)
+    public function __construct($orderRepository, $orderStatusRepository, $orderSearcher, $responseView, $logger)
     {
         $this->orderRepository = $orderRepository;
         $this->orderStatusRepository = $orderStatusRepository;
         $this->orderSearcher = $orderSearcher;
-        $this->orderStatusSearcher = $orderStatusSearcher;
         $this->responseView = $responseView;
         $this->logger = $logger;
     }
@@ -49,14 +47,6 @@ class OrderService
         $result = array();
         array_push($result, array ("order" => $order));
         
-        return $this->responseView->getSuccessView($result);
-    }
-    
-    public function getOrderStatusById($value) 
-    {
-        $statusId = $this->orderStatusSearcher->searchOrderStatusByOrderId($value);
-        $result = array();
-        array_push($result, array ("statusId" => $statusId));
         return $this->responseView->getSuccessView($result);
     }
 }

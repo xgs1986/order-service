@@ -21,8 +21,7 @@ class UpdateOrderStatusController extends FOSRestController
       /**
      * @Operation(
      *     tags={"order"},
-     *     consumes={"application/json"},
-     *     produces={"application/json"},
+     *     consumes={"multipart/form-data"},
      *     summary="Actualizo el status de una orden",
      *     @SWG\Parameter(
      *         name="id",
@@ -60,7 +59,7 @@ class UpdateOrderStatusController extends FOSRestController
         
         $orderRepositoryParams = array ("status" => $request->get('status'), "id_order" => $request->get('id'));
         
-        $this->order->createOrderStatus($orderRepositoryParams);
+        $view = $order->createOrderStatus($orderRepositoryParams);
         return $this->handleView($view);
     }
 }

@@ -90,9 +90,9 @@ fos_elastica:
     clients:
        default: { host: 127.0.0.1, port: 9200 }
     indexes:
-       app:
+       order:
           types:
-             order:
+             order_type:
                 properties:
                    total_amount: { type: float}
                    order_lines: { type: object, dynamic: true }
@@ -103,6 +103,18 @@ fos_elastica:
                    model: AppBundle\Document\Order
                    provider: ~
                    finder: ~
+       order_status:
+          types:
+             order_status_type:
+                properties:
+                   id_order: { type: text }
+                   id_status: { type: integer }
+                   date_status: {type: date, format: "Y-m-d H:i:s" }
+                persistence:
+                   driver: mongodb
+                   model: AppBundle\Document\OrderStatus
+                   provider: ~
+                   finder: ~            
                    
 nelmio_api_doc:
     areas:

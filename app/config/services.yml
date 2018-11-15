@@ -37,10 +37,15 @@ services:
     order_service:
         class:                         AppBundle\Services\OrderService
         public: true
-        arguments: ['@order_repository_service', '@searcher_order_service', '@response_view_service', '@logger']  
+        arguments: ['@order_repository_service', '@order_status_repository_service', '@searcher_order_service', '@searcher_order_status_service', '@response_view_service', '@logger']  
    
     order_repository_service:
         class:                         AppBundle\Services\NosqlBundle\OrderRepositoryService
+        public: true
+        arguments: ['@doctrine_mongodb', '@logger']  
+        
+    order_status_repository_service:
+        class:                         AppBundle\Services\NosqlBundle\OrderStatusRepositoryService
         public: true
         arguments: ['@doctrine_mongodb', '@logger']  
         
@@ -52,5 +57,10 @@ services:
     searcher_order_service:
         class:                         AppBundle\Services\SearcherBundle\SearcherOrderService
         public: true
-        arguments: ['@fos_elastica.finder.app.order', '@logger']  
+        arguments: ['@fos_elastica.finder.order.order_type', '@logger']  
+        
+    searcher_order_status_service:
+        class:                         AppBundle\Services\SearcherBundle\SearcherOrderStatusService
+        public: true
+        arguments: ['@fos_elastica.finder.order_status.order_status_type', '@logger']  
            

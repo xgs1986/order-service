@@ -5,14 +5,18 @@ namespace AppBundle\Services;
 class OrderService
 {
     private $logger;
-    private $repository;
-    private $searcher;
+    private $orderRepository;
+    private $orderStatusRepository;
+    private $orderSearcher;
+    private $orderStatusSearcher;
     private $responseView;
     
-    public function __construct($repository, $searcher, $responseView, $logger)
+    public function __construct($orderRepository, $orderStatusRepository, $orderSearcher, $orderStatusSearcher, $responseView, $logger)
     {
-        $this->repository = $repository;
-        $this->searcher = $searcher;
+        $this->orderRepository = $orderRepository;
+        $this->orderStatusRepository = $orderStatusRepository;
+        $this->orderSearcher = $orderSearcher;
+        $this->orderStatusSearcher = $orderStatusSearcher;
         $this->responseView = $responseView;
         $this->logger = $logger;
     }
@@ -20,17 +24,29 @@ class OrderService
     public function createOrder($params)
     {
         $this->logger->info('Nueva compra con parámetros ' . json_encode($params));
-        $id = $this->repository->create($params);
+        $id = $this->orderRepository->create($params);
         $result = array();
         array_push($result, array ("_id" => $id));
         
+        $orderRepositoryParams = array ("id_status" => 0, "id_order" => $id);
+        $this->orderStatusRepository->add($orderRepositoryParams);
+
         return $this->responseView->getSuccessView($result);
     }
     
     public function getOrderById($value) {
-        $order = $this->searcher->searchOrderById($value);
+        $order = $this->orderSearcher->searchOrderById($value);
         $result = array();
         array_push($result, array ("order" => $order));
+        
+        return $this->responseView->getSuccessView($result);
+    }
+    
+    public function getOrderStatusById($value) 
+    {
+        $statusId = $this->orderStatusSearcher->searchOrderStatusByOrderId($value);
+        $result = array();
+        array_push($result, array ("statusId" => $statusId));
         
         return $this->responseView->getSuccessView($result);
     }

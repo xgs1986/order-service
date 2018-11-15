@@ -16,6 +16,10 @@ get-order:
     type: rest
     resource: AppBundle\Controller\GetOrderController
     
+get-order-status:
+    type: rest
+    resource: AppBundle\Controller\GetOrderStatusController
+    
 update-order-status:
     type: rest
     resource: AppBundle\Controller\UpdateOrderStatusController

@@ -18,7 +18,16 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/windows.html
 
 * composer install --ignore-platform-reqs => en las preguntas dar todo intro para saltar y mantener los valores por defecto
 * php bin/console server:run
-* acceder a http://localhost:800X/api/doc
+* acceder a http://localhost:8000/api/doc
+* arrancar servicio elastic
+* comprobar elastic: http://localhost:9200
+* arrancar mongodb C:\Program Files\MongoDB\Server\4.0\bin\mongod.exe
 
-
-
+Tips 
+--------------
+ver indices elastic:
+* http://localhost:9200/app/_search?
+* http://localhost:9200/app/order/_search?
+* http://localhost:9200/app/order_status/_search?
+eliminar indices elastic:
+* cmd => curl -XDELETE http://localhost:9200/app/

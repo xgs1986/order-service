@@ -32,10 +32,10 @@ class UpdateOrderStatusController extends FOSRestController
      *         type="string"
      *     ),
      *     @SWG\Parameter(
-     *         name="estado",
+     *         name="status",
      *         in="formData",
-     *         enum={"available", "discontinued"},
-     *         default="available",
+     *         enum={"Pending Confirmation", "Confirmed", "Sent to Warehouse", "Shipped", "In Transit", "Delivered"},
+     *         default="Pending Confirmation",
      *         description="status",
      *         required=true,
      *         type="string"
@@ -57,7 +57,10 @@ class UpdateOrderStatusController extends FOSRestController
     public function postUpdateOrderStatusAction (Request $request)
     {
         $order = $this->get('order_service');
-        $view = $order->getOrderById($request->get('id'));       
+        
+        $orderRepositoryParams = array ("status" => $request->get('status'), "id_order" => $request->get('id'));
+        
+        $this->order->createOrderStatus($orderRepositoryParams);
         return $this->handleView($view);
     }
 }

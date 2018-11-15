@@ -20,16 +20,15 @@ class OrderStatus
     protected $id_order;
     
     /**
-     * @MongoDB\Field(type="integer")
+     * @MongoDB\Field(type="string")
      */
-    protected $id_status;
+    protected $status;
     
     /**
      * @MongoDB\Field(type="date")
      */
     protected $date_status;
     
-   
 
     /**
      * Get id
@@ -64,25 +63,25 @@ class OrderStatus
     }
 
     /**
-     * Set idStatus
+     * Set status
      *
-     * @param integer $idStatus
+     * @param string $status
      * @return $this
      */
-    public function setIdStatus($idStatus)
+    public function setStatus($status)
     {
-        $this->id_status = $idStatus;
+        $this->status = $status;
         return $this;
     }
 
     /**
-     * Get idStatus
+     * Get status
      *
-     * @return integer $idStatus
+     * @return string $status
      */
-    public function getIdStatus()
+    public function getStatus()
     {
-        return $this->id_status;
+        return $this->status;
     }
 
     /**

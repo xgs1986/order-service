@@ -108,7 +108,7 @@ fos_elastica:
              order_status_type:
                 properties:
                    id_order: { type: text }
-                   id_status: { type: integer }
+                   status: { type: text }
                    date_status: {type: date, format: "Y-m-d H:i:s" }
                 persistence:
                    driver: mongodb

@@ -24,7 +24,7 @@ class OrderStatusRepositoryService
         try
         {
             $order = new OrderStatus();
-            $order->setIdStatus($params['id_status']);
+            $order->setStatus($params['status']);
             $order->setIdOrder($params['id_order']);
             $order->setDateStatus(Utilities::getToday());
             

@@ -57,4 +57,12 @@ services:
     searcher_order_service:
         class:                         AppBundle\Services\SearcherBundle\SearcherOrderService
         public: true
-        arguments: ['@fos_elastica.finder.order.order_type', '@logger']             
+        arguments: ['@fos_elastica.finder.order.order_type', '@logger']   
+        
+    update_order_status_listener:
+        class:                         AppBundle\Services\EventListeners\UpdateOrderStatusListenerService
+        public: true
+        arguments: ['@fos_elastica.finder.order_status.order_status_type', '@logger']        
+        tags:                                       
+            - { name: kernel.event_listener, event: elastica.index.type_pre_populate, method: preIndexPopulate }
+            - { name: kernel.event_listener, event: elastica.index.type_post_populate, method: postIndexPopulate }   

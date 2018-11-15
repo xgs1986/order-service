@@ -31,14 +31,18 @@ class OrderService
         $orderRepositoryParams = array ("status" => self::DEFAULT_STATUS, "id_order" => $id);
         $this->createOrderStatus($orderRepositoryParams);
         
+        $this->logger->info('Se ha creado una nueva compra ' . json_encode($params));
         return $this->responseView->getSuccessView($result);
     }
     
     public function createOrderStatus($orderRepositoryParams)
     {
+        $this->logger->info('Nueva actualizacion de un status de compra ' . json_encode($orderRepositoryParams));
         $orderStatusId = $this->orderStatusRepository->add($orderRepositoryParams);
         $result = array();
         array_push($result, array ("statusOrderId" => $orderStatusId));
+        
+        $this->logger->info('Se ha actualizado el status de la compra ' . json_encode($orderRepositoryParams));
         return $this->responseView->getSuccessView($result);
     }
     

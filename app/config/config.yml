@@ -103,6 +103,7 @@ fos_elastica:
                    model: AppBundle\Document\Order
                    provider: ~
                    finder: ~
+                   listener: ~   
        order_status:
           types:
              order_status_type:
@@ -114,7 +115,8 @@ fos_elastica:
                    driver: mongodb
                    model: AppBundle\Document\OrderStatus
                    provider: ~
-                   finder: ~            
+                   finder: ~    
+                   listener: ~     
                    
 nelmio_api_doc:
     areas:

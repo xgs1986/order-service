@@ -2,10 +2,11 @@
 
 namespace AppBundle\Services\EventListeners;
 
-use FOS\ElasticaBundle\Event\IndexPopulateEvent;
-use FOS\ElasticaBundle\Index\IndexManager;
 use AppBundle\Document\OrderStatus;
 
+/**
+ * Listener para cuando haya una actualización de un estado
+ */
 class UpdateOrderStatusListenerService
 {
     private $logger;

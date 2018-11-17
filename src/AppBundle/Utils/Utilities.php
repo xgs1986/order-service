@@ -2,9 +2,7 @@
 namespace AppBundle\Utils;
 
 /**
- * Classe estructura de los ApiException
- * @author XGS
- *
+ * Clase con utilidades varias
  */
 class Utilities 
 {

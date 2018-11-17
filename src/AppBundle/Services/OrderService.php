@@ -2,6 +2,7 @@
 
 namespace AppBundle\Services;
 
+// Servicio que gestiona los pedidos. Puerto de entrada de los controller
 class OrderService
 {
     private $logger;

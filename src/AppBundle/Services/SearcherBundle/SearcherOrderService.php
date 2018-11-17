@@ -2,6 +2,10 @@
 
 namespace AppBundle\Services\SearcherBundle;
 
+/**
+ * Servicio que permite obtener un indice una compra en elastic
+ */
+
 class SearcherOrderService
 {
     private $logger;

@@ -4,6 +4,7 @@ namespace AppBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
+// Entidad que mapea en mongodb el objeto pedido
 /**
  * @MongoDB\Document
  */

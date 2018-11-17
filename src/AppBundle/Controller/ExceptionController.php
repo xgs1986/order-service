@@ -15,7 +15,6 @@ use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 /**
  * Controllador de captura de excepciones
- * @author XGS
  */
 class ExceptionController extends FOSRestController 
 {

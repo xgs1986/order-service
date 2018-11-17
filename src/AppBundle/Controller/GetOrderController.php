@@ -12,9 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Obtenemos un orden dado su id
- * @author XGS
- *
+ * Obtenemos un pedido dado su id
  */
 class GetOrderController extends FOSRestController
 {

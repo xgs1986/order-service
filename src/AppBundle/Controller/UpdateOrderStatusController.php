@@ -12,9 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Nos permite registrarnos en la base de datos
- * @author XGS
- *
+ * Actualizamos un estado del pedido
  */
 class UpdateOrderStatusController extends FOSRestController
 {
@@ -22,7 +20,7 @@ class UpdateOrderStatusController extends FOSRestController
      * @Operation(
      *     tags={"order"},
      *     consumes={"multipart/form-data"},
-     *     summary="Actualizo el status de una orden",
+     *     summary="Actualizar un estado del pedido",
      *     @SWG\Parameter(
      *         name="id",
      *         in="formData",

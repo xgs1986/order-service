@@ -3,11 +3,12 @@
 namespace AppBundle\Services\NosqlBundle;
 
 use AppBundle\Document\OrderStatus;
-use Symfony\Component\HttpKernel\Exception\HttpException;
-use AppBundle\Utils\ApiException;
 use AppBundle\Utils\Utilities;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
-
+/**
+ * Servicio que persiste en elastic un nuevo estado de un pedido
+ */
 class OrderStatusRepositoryService
 {
     private $logger;

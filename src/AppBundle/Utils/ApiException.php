@@ -5,8 +5,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Classe estructura de los ApiException
- * @author XGS
- *
  */
 class ApiException extends \Exception
 {

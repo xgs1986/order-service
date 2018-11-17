@@ -4,9 +4,10 @@ namespace AppBundle\Services\NosqlBundle;
 
 use AppBundle\Document\Order;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use AppBundle\Utils\ApiException;
 
-
+/**
+ * Servicio que persiste un nuevo indice en elastic de un pedido
+ */
 class OrderRepositoryService
 {
     private $logger;

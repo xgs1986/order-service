@@ -12,9 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Creamos una nueva compra
- * @author XGS
- *
+ * Creamos un nuevo pedido
  */
 class PostNewOrderController extends FOSRestController
 {
@@ -23,7 +21,7 @@ class PostNewOrderController extends FOSRestController
      *     tags={"order"},
      *     consumes={"application/json"},
      *     produces={"application/json"},
-     *     summary="Crea una nueva compra",
+     *     summary="Crear un nuevo pedido",
      *     @SWG\Parameter(
      *         name="order",
      *         in="body",

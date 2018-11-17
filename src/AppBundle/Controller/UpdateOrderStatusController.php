@@ -10,6 +10,7 @@ use Nelmio\ApiDocBundle\Annotation\Model;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use AppBundle\Utils\ApiException;
 
 /**
  * Actualizamos un estado del pedido
@@ -54,9 +55,13 @@ class UpdateOrderStatusController extends FOSRestController
     public function postUpdateOrderStatusAction (Request $request)
     {
         $order = $this->get('order_service');
+        $availableStatus = array("Pending Confirmation", "Confirmed", "Sent to Warehouse", "Shipped", "In Transit", "Delivered");
+        $status =  $request->get('status');
+        if (!in_array($status, $availableStatus)) {
+            throw new ApiException("Status not available", 404);
+        }
         
-        $orderRepositoryParams = array ("status" => $request->get('status'), "id_order" => $request->get('id'));
-        
+        $orderRepositoryParams = array ("status" => $status, "id_order" => $request->get('id'));
         $view = $order->createOrderStatus($orderRepositoryParams);
         return $this->handleView($view);
     }

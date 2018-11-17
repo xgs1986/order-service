@@ -11,11 +11,15 @@ NelmioApiDocBundle:
 create-order:
     type: rest
     resource: AppBundle\Controller\PostNewOrderController
-
-get-order:
-    type: rest
-    resource: AppBundle\Controller\GetOrderController
     
 update-order-status:
     type: rest
     resource: AppBundle\Controller\UpdateOrderStatusController
+    
+get-order:
+    type: rest
+    resource: AppBundle\Controller\GetOrderController
+    
+get-order-status:
+    type: rest
+    resource: AppBundle\Controller\GetOrderStatusController

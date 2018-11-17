@@ -30,4 +30,4 @@ ver indices elastic:
 * http://localhost:9200/app/order/_search?
 * http://localhost:9200/app/order_status/_search?
 eliminar indices elastic:
-* cmd => curl -XDELETE http://localhost:9200/app/
+* cmd => curl -XDELETE http://localhost:9200/order/
